@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>contactListBuddyIcon@robert.hollencamp</em:id>
+    <em:version>0.1pre</em:version>
+    <em:type>2</em:type>
+
+    <em:name>Contact List Buddy Icon</em:name>
+    <em:description>Show buddy icon in contact list</em:description>
+    <em:creator>Robert Hollencamp</em:creator>
+
+    <em:targetApplication>
+      <Description>
+        <em:id>{33cb9019-c295-46dd-be21-8c4936574bee}</em:id>
+        <em:minVersion>1.5</em:minVersion>
+        <em:maxVersion>1.5</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+  </Description>
+</RDF>

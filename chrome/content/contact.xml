@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE bindings [
+  <!ENTITY % instantbirdDTD SYSTEM "chrome://instantbird/locale/instantbird.dtd" >
+  %instantbirdDTD;
+]>
+
+<bindings id="contactListBuddyIconContactBindings"
+          xmlns="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <binding id="contact" extends="chrome://instantbird/content/contact.xml#contact-big">
+    <implementation implements="nsIObserver">
+
+      <method name="update">
+        <body>
+          <![CDATA[
+var aConsoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
+aConsoleService.logStringMessage(this.contact.buddyIconFilename);
+
+          this.setAttribute("displayname", this.contact.displayName);
+
+          let statusText = this.contact.statusText;
+          if (statusText)
+            statusText = " - " + statusText;
+          this.setAttribute("statusTextWithDash", statusText);
+          let statusType = this.contact.statusType;
+          this.setAttribute("statusText", Status.toLabel(statusType) + statusText);
+          this.setAttribute("status", Status.toAttribute(statusType));
+
+          if (this.contact.canSendMessage)
+            this.setAttribute("cansend", "true");
+          else
+            this.removeAttribute("cansend");
+
+          let proto = this.contact.preferredBuddy.protocol;
+          if (this.contact.buddyIconFilename)
+            this.setAttribute("iconPrpl", this.contact.buddyIconFilename);
+          else
+            this.setAttribute("iconPrpl", proto.iconBaseURI + "icon.png");
+        ]]>
+        </body>
+      </method>
+    </implementation>
+  </binding>
+</bindings>

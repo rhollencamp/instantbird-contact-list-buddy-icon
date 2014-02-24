@@ -1,0 +1,2 @@
+content contactListBuddyIcon chrome/content/
+style chrome://instantbird/content/blist.xul chrome://contactListBuddyIcon/content/contact.css

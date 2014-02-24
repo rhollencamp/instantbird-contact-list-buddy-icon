@@ -1,0 +1,17 @@
+contact {
+  -moz-binding: url("chrome://contactListBuddyIcon/content/contact.xml#contact");
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+}
+
+.statusIcon {
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.prplBuddyIcon {
+  width: 40px;
+  max-width: none;
+  height: 40px;
+  max-height: none;
+}
