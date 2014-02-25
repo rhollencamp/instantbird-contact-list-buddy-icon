@@ -1,3 +1,9 @@
+#buddylistbox:focus > contact[selected] {
+  -moz-binding: url("chrome://contactListBuddyIcon/content/contact.xml#contact");
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+}
+
 contact {
   -moz-binding: url("chrome://contactListBuddyIcon/content/contact.xml#contact");
   -moz-box-orient: vertical;
@@ -9,9 +15,19 @@ contact {
   background-position: right bottom;
 }
 
-.prplBuddyIcon {
-  width: 40px;
+.userIcon {
+  width: 36px;
   max-width: none;
-  height: 40px;
+  height: 36px;
   max-height: none;
+}
+
+.userIcon[src=""] {
+  background-image: url("chrome://instantbird/skin/userIcon.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.buddyIcon {
+  padding: 2px;
 }

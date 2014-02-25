@@ -11,14 +11,40 @@
           xmlns:html="http://www.w3.org/1999/xhtml">
 
   <binding id="contact" extends="chrome://instantbird/content/contact.xml#contact-big">
-    <implementation implements="nsIObserver">
+    <content>
+      <xul:hbox flex="1" mousethrough="always">
+        <xul:stack class="buddyIcon" mousethrough="always">
+          <xul:image class="userIcon" xbl:inherits="src=userIcon"/>
+          <xul:image class="statusIcon" xbl:inherits="status"/>
+        </xul:stack>
+        <xul:vbox flex="1" class="contact-vbox" mousethrough="always">
+          <xul:hbox class="contact-hbox" mousethrough="always">
+            <xul:label crop="end" flex="1" mousethrough="always"
+                       anonid="displayname" class="contactDisplayName blistDisplayName"
+                       xbl:inherits="value=displayname,status"/>
+            <xul:button anonid="startChatBubble" class="startChatBubble"
+                        tooltiptext="&openConversationCmd.label;"/>
+          </xul:hbox>
+          <xul:hbox class="contact-hbox" mousethrough="always">
+            <xul:label crop="end" flex="1" mousethrough="always"
+                       anonid="statusText" class="contactStatusText"
+                       xbl:inherits="value=statusText"/>
+            <xul:button anonid="expander" class="expander-down"
+                        tooltiptextexpand="&expandContactTooltip;"
+                        tooltiptextcollapse="&collapseContactTooltip;"
+                        tooltiptext="&expandContactTooltip;"/>
+          </xul:hbox>
+        </xul:vbox>
+      </xul:hbox>
+      <xul:vbox anonid="contactBuddies" class="contactBuddies">
+        <children/>
+      </xul:vbox>
+    </content>
 
+    <implementation implements="nsIObserver">
       <method name="update">
         <body>
-          <![CDATA[
-var aConsoleService = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
-aConsoleService.logStringMessage(this.contact.buddyIconFilename);
-
+        <![CDATA[
           this.setAttribute("displayname", this.contact.displayName);
 
           let statusText = this.contact.statusText;
@@ -36,9 +62,11 @@ aConsoleService.logStringMessage(this.contact.buddyIconFilename);
 
           let proto = this.contact.preferredBuddy.protocol;
           if (this.contact.buddyIconFilename)
-            this.setAttribute("iconPrpl", this.contact.buddyIconFilename);
+            this.setAttribute("userIcon", this.contact.buddyIconFilename);
           else
-            this.setAttribute("iconPrpl", proto.iconBaseURI + "icon.png");
+            this.setAttribute("userIcon", "");
+
+          this.setAttribute("iconPrpl", proto.iconBaseURI + "icon.png");
         ]]>
         </body>
       </method>
