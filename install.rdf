@@ -4,7 +4,7 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>contactListBuddyIcon@robert.hollencamp</em:id>
-    <em:version>0.1pre</em:version>
+    <em:version>1.0</em:version>
     <em:type>2</em:type>
 
     <em:name>Contact List Buddy Icon</em:name>

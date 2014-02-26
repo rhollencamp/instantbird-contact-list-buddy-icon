@@ -1,10 +1,7 @@
+contact,
+contact[open],
+contact[aliasing],
 #buddylistbox:focus > contact[selected] {
-  -moz-binding: url("chrome://contactListBuddyIcon/content/contact.xml#contact");
-  -moz-box-orient: vertical;
-  -moz-box-align: stretch;
-}
-
-contact {
   -moz-binding: url("chrome://contactListBuddyIcon/content/contact.xml#contact");
   -moz-box-orient: vertical;
   -moz-box-align: stretch;
