@@ -4,18 +4,17 @@
 
   <Description about="urn:mozilla:install-manifest">
     <em:id>contactListBuddyIcon@robert.hollencamp</em:id>
-    <em:version>1.0</em:version>
+    <em:version>1.0.1</em:version>
     <em:type>2</em:type>
-
     <em:name>Contact List Buddy Icon</em:name>
     <em:description>Show buddy icon in contact list</em:description>
     <em:creator>Robert Hollencamp</em:creator>
-
+    <em:contributor>Alexander Salas</em:contributor>
     <em:targetApplication>
       <Description>
         <em:id>{33cb9019-c295-46dd-be21-8c4936574bee}</em:id>
         <em:minVersion>1.5</em:minVersion>
-        <em:maxVersion>1.5</em:maxVersion>
+        <em:maxVersion>1.6a1pre</em:maxVersion>
       </Description>
     </em:targetApplication>
   </Description>
